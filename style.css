@@ -591,9 +591,9 @@ nav {
 
 
 /* CORES DOS CARDS */
-.card-blue  { background:linear-gradient(#000, #1b1b1b); border: 1px solid #3f51b5; }
-.card-purple{ background: #808080; border: 1px solid #8b5cf6; }
-.card-red   { background: #3b0f0f; border: 1px solid #ff5252; }
+.card-blue  { background:linear-gradient(#000, #1b1b1b); border: 1px solid ##fff; }
+.card-purple{ background: linear-gradient(#000, #1b1b1b); border: 1px solid #fff; }
+.card-red   { background:linear-gradient(#000, #1b1b1b); border: 1px solid #fff; }
 .card-green { background: #0f3b1f; border: 1px solid #4caf50; }
 .card-orange{ background: #3b1f0f; border: 1px solid #ff9800; }
 .card-pink  { background: #3b0f2a; border: 1px solid #e91e63; }
