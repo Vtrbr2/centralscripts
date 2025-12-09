@@ -3,6 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+body {
+    padding-top: 70px; /* ajuste conforme a altura da sua nav */
+}
 
 header {
     background: #000;
@@ -25,7 +28,7 @@ nav {
     left: 0;
     width: 100%;
     z-index: 1000;
-    background: #fff; /* coloque a cor que sua nav usa */
+    background: #000; /* coloque a cor que sua nav usa */
 }
 
 .logo {
