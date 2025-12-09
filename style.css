@@ -97,58 +97,145 @@ nav {
 }
 
 
+
+
+
+
 /* HERO */
 .hero {
     position: relative;
     width: 100%;
-    height: 100vh; /* ocupa a tela inteira */
+    height: 100vh;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
 }
 
-/* Imagem chamada diretamente no HTML */
 .hero-bg {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;        /* deixa a imagem responsiva */
     position: absolute;
     top: 0;
     left: 0;
-    z-index: -1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
 }
 
-/* Gradiente preto no final da imagem */
+/* Gradiente preto no final */
 .hero::after {
     content: "";
     position: absolute;
     bottom: 0;
-    left: 0;
     width: 100%;
-    height: 35%;              /* pode ajustar */
+    height: 40%;
     background: linear-gradient(to bottom, rgba(0,0,0,0), #000);
-    z-index: 0;
+    z-index: -1;
 }
 
-/* Conteúdo centralizado */
+/* CONTEÚDO DO HERO */
 .hero-content {
-    position: relative;
-    z-index: 1;
-    color: white;
     text-align: center;
-    margin-top: 120px;
+    max-width: 600px;
+    animation: fadeUp 1.1s ease forwards;
 }
 
-.hero-content h1 {
-    font-size: 48px;
+/* Badge */
+.badge {
+    background: #24204d;
+    padding: 10px 28px;
+    display: inline-block;
+    border-radius: 999px;
+    margin-bottom: 25px;
+    animation: pop 1.3s ease;
 }
 
-.hero-content p {
-    font-size: 20px;
-    color: #ddd;
+.badge span {
+    color: #b6b0ff;
+    font-size: 16px;
+    font-weight: 500;
 }
 
-/* Próxima seção */
-.conteudo {
-    background: #000;
+/* Título */
+.title {
     color: #fff;
-    padding: 40px 20px;
-    }
+    font-size: 38px;
+    line-height: 1.3;
+    font-weight: 700;
+    animation: slideDown 1.2s ease forwards;
+}
+
+.highlight {
+    color: #8e7bff;
+}
+
+/* Subtítulo */
+.subtitle {
+    margin-top: 18px;
+    color: #b4b4cc;
+    font-size: 17px;
+    animation: fade 1.5s ease forwards;
+}
+
+/* Botões */
+.btn {
+    display: block;
+    width: 90%;
+    max-width: 400px;
+    margin: 18px auto;
+    padding: 18px 0;
+    border-radius: 50px;
+    font-size: 18px;
+    text-decoration: none;
+    text-align: center;
+    transition: 0.3s ease;
+}
+
+/* Botão primário */
+.primary {
+    background: linear-gradient(90deg, #8164ff, #6a4bff);
+    color: #fff;
+    animation: pop 1.45s ease forwards;
+}
+
+.primary:hover {
+    transform: scale(1.03);
+}
+
+/* Botão secundário */
+.secondary {
+    background: rgba(255,255,255,0.07);
+    color: #b4b4ff;
+    border: 1px solid rgba(255,255,255,0.1);
+    animation: pop 1.6s ease forwards;
+}
+
+.secondary:hover {
+    transform: scale(1.03);
+}
+
+/* =========== ANIMAÇÕES =========== */
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(25px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes pop {
+    0% { opacity: 0; transform: scale(0.85); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+
+
