@@ -106,6 +106,76 @@
     </div>
 
     </section>
+
+    <section class="porque-section">
+    <h2 class="porque-title">Por que usar nosso site?</h2>
+
+    <div class="porque-cards">
+
+        <div class="pq-card" data-modal="modal1">
+            <h3>🚀 Scripts Confiáveis</h3>
+            <p>Nossos scripts são testados e atualizados.</p>
+        </div>
+
+        <div class="pq-card" data-modal="modal2">
+            <h3>⚡ Atualizações Rápidas</h3>
+            <p>Você recebe tudo em primeira mão.</p>
+        </div>
+
+        <div class="pq-card" data-modal="modal3">
+            <h3>🔒 Segurança Garantida</h3>
+            <p>Ambiente protegido para usuários.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- MODAIS -->
+<div class="modal" id="modal1">
+    <div class="modal-content">
+        <span class="close">×</span>
+        <h2>🚀 Scripts Confiáveis</h2>
+        <p>Todos os scripts passam por testes antes de serem publicados, garantindo funcionamento e qualidade máxima.</p>
+    </div>
+</div>
+
+<div class="modal" id="modal2">
+    <div class="modal-content">
+        <span class="close">×</span>
+        <h2>⚡ Atualizações Rápidas</h2>
+        <p>Quando há novidades, você recebe primeiro. Atualizamos a plataforma constantemente para trazer melhorias.</p>
+    </div>
+</div>
+
+<div class="modal" id="modal3">
+    <div class="modal-content">
+        <span class="close">×</span>
+        <h2>🔒 Segurança Garantida</h2>
+        <p>Nosso sistema é protegido, garantindo que apenas você tenha acesso ao que importa.</p>
+    </div>
+       <script>
+const cards = document.querySelectorAll('.pq-card');
+const modals = document.querySelectorAll('.modal');
+
+cards.forEach(card => {
+    card.addEventListener('click', () => {
+        const modalId = card.getAttribute('data-modal');
+        document.getElementById(modalId).style.display = 'flex';
+    });
+});
+
+document.querySelectorAll('.close').forEach(btn => {
+    btn.addEventListener('click', () => {
+        btn.closest('.modal').style.display = 'none';
+    });
+});
+
+window.addEventListener('click', e => {
+    modals.forEach(m => {
+        if (e.target === m) m.style.display = 'none';
+    });
+});
+       </script>                                                                                                                 </div>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
     const loader = document.getElementById("global-loader");
