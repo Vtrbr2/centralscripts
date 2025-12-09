@@ -243,6 +243,7 @@ nav {
 .stats-section {
     padding: 60px 20px;
     text-align: center;
+    background: #000;
 }
 
 /* Parte das estatísticas */
