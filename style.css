@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header {
+    background: #000;
+    padding: 15px 0;
+}
+
+header .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.logo-img {
+    width: 35px;
+    margin-right: 10px;
+}
+
+/* LINKS DESKTOP */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+    opacity: 0.7;
+}
+
+/* HAMBURGER */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 28px;
+    height: 3px;
+    background: #fff;   /* BARRINHAS BRANCAS */
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+
+/* ============ MOBILE ============ */
+@media (max-width: 768px) {
+
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -250px; /* ESCONDIDO NA DIREITA */
+        height: 100vh;
+        width: 250px;
+        background: #000;
+        flex-direction: column;
+        padding-top: 100px;
+        gap: 30px;
+        transition: 0.4s ease; /* ANIMAÇÃO VINDO DA DIREITA */
+        z-index: 1200;
+    }
+
+    .nav-links.open {
+        right: 0; /* MOSTRA O MENU */
+    }
+}
