@@ -121,7 +121,7 @@ nav {
     z-index: -2;
 }
 
-/* GRADIENTE COMO NA IMAGEM */
+/* GRADIENTE COMO NA IMAGEM *
 .hero::after {
     content: "";
     position: absolute;
