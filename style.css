@@ -98,10 +98,7 @@ nav {
 
 
 
-
-
-
-/* HERO */
+/* HERO ------------------------------------------------------------------ */
 .hero {
     position: relative;
     width: 100%;
@@ -110,7 +107,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding: 25px;
 }
 
 .hero-bg {
@@ -120,83 +117,89 @@ nav {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    opacity: 0.8;
     z-index: -2;
 }
 
-/* Gradiente preto no final */
+/* GRADIENTE COMO NA IMAGEM */
 .hero::after {
     content: "";
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 40%;
+    height: 45%;
     background: linear-gradient(to bottom, rgba(0,0,0,0), #000);
     z-index: -1;
 }
 
-/* CONTEÚDO DO HERO */
+/* CONTEÚDO --------------------------------------------------------------- */
 .hero-content {
     text-align: center;
     max-width: 600px;
-    animation: fadeUp 1.1s ease forwards;
+    animation: fadeUp 1s ease forwards;
 }
 
-/* Badge */
+/* BADGE EXATA ------------------------------------------------------------ */
 .badge {
-    background: #24204d;
-    padding: 10px 28px;
-    display: inline-block;
+    background: rgba(65, 53, 133, 0.55);
+    padding: 10px 25px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
     border-radius: 999px;
+    backdrop-filter: blur(8px);
     margin-bottom: 25px;
-    animation: pop 1.3s ease;
+    animation: pop 1.2s ease;
+}
+
+.badge .icon {
+    width: 20px;
+    filter: brightness(1.5);
 }
 
 .badge span {
-    color: #b6b0ff;
+    color: #b9a9ff;
     font-size: 16px;
-    font-weight: 500;
 }
 
-/* Título */
+/* TÍTULO IGUAL AO MODELO ------------------------------------------------ */
 .title {
     color: #fff;
     font-size: 38px;
     line-height: 1.3;
     font-weight: 700;
-    animation: slideDown 1.2s ease forwards;
+    margin-bottom: 20px;
 }
 
 .highlight {
-    color: #8e7bff;
+    color: #846dff;
 }
 
-/* Subtítulo */
+/* SUBTÍTULO ------------------------------------------------------------- */
 .subtitle {
-    margin-top: 18px;
-    color: #b4b4cc;
+    color: #b3b3cc;
     font-size: 17px;
-    animation: fade 1.5s ease forwards;
+    margin-bottom: 40px;
 }
 
-/* Botões */
+/* BOTÕES ---------------------------------------------------------------- */
 .btn {
     display: block;
     width: 90%;
-    max-width: 400px;
-    margin: 18px auto;
+    max-width: 430px;
+    margin: 15px auto;
     padding: 18px 0;
     border-radius: 50px;
-    font-size: 18px;
     text-decoration: none;
     text-align: center;
+    font-size: 18px;
     transition: 0.3s ease;
 }
 
-/* Botão primário */
+/* Botão roxo igual ao da imagem */
 .primary {
-    background: linear-gradient(90deg, #8164ff, #6a4bff);
+    background: linear-gradient(90deg, #8f73ff, #715cff);
     color: #fff;
-    animation: pop 1.45s ease forwards;
 }
 
 .primary:hover {
@@ -205,37 +208,26 @@ nav {
 
 /* Botão secundário */
 .secondary {
-    background: rgba(255,255,255,0.07);
-    color: #b4b4ff;
+    background: rgba(255,255,255,0.04);
     border: 1px solid rgba(255,255,255,0.1);
-    animation: pop 1.6s ease forwards;
+    color: #8f7eff;
 }
 
 .secondary:hover {
     transform: scale(1.03);
 }
 
-/* =========== ANIMAÇÕES =========== */
-
+/* ANIMAÇÕES -------------------------------------------------------------- */
 @keyframes fadeUp {
     from { opacity: 0; transform: translateY(25px); }
     to   { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes slideDown {
-    from { opacity: 0; transform: translateY(-20px); }
-    to   { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fade {
-    from { opacity: 0; }
-    to   { opacity: 1; }
 }
 
 @keyframes pop {
     0% { opacity: 0; transform: scale(0.85); }
     100% { opacity: 1; transform: scale(1); }
 }
+
 
 
 
