@@ -316,11 +316,10 @@ nav {
         padding: 14px 22px;
     }
 }
-/* LOADER – TELA INTEIRA */
 .loading {
     position: fixed;
     inset: 0;
-    background: #000; /* fundo preto */
+    background: #000;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -330,46 +329,40 @@ nav {
     transition: opacity .5s ease, visibility .5s ease;
 }
 
-/* Esconde quando remover classe */
 .loading.hide {
     opacity: 0;
     visibility: hidden;
 }
 
-/* Conteúdo */
 .loading-content {
     text-align: center;
     color: white;
     font-family: Arial;
 }
 
-/* SVG */
 .loader-circle {
     width: 80px;
     height: 80px;
     animation: rotate 1.3s linear infinite;
 }
 
-/* Círculo */
 .loader-circle circle {
     fill: none;
     stroke-width: 5;
     stroke-linecap: round;
-    stroke: #7aaaff; /* cor inicial */
+    stroke: #7aaaff;
     animation: changeColor 3s ease-in-out infinite;
 }
 
-/* Rotação */
 @keyframes rotate {
     100% {
         transform: rotate(360deg);
     }
 }
 
-/* Cores alternando */
 @keyframes changeColor {
-    0% { stroke: #7aaaff; }   /* azul claro */
-    33% { stroke: #bfbfbf; }  /* cinza */
-    66% { stroke: #a366ff; }  /* roxo */
-    100% { stroke: #7aaaff; } /* volta */
-}
+    0% { stroke: #7aaaff; }
+    33% { stroke: #bfbfbf; }
+    66% { stroke: #a366ff; }
+    100% { stroke: #7aaaff; }
+    }
