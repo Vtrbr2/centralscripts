@@ -141,13 +141,13 @@ nav {
 
 /* BADGE EXATA ------------------------------------------------------------ */
 .badge {
-    background: rgba(65, 53, 133, 0.55);
+    background: transparent;
     padding: 10px 25px;
     display: inline-flex;
     align-items: center;
     gap: 10px;
     border-radius: 999px;
-    backdrop-filter: blur(8px);
+    backdrop-filter: none;
     margin-bottom: 25px;
     animation: pop 1.2s ease;
 }
