@@ -19,6 +19,7 @@ header .container {
 }
 
 nav {
+    padding:0 20px;
     height:70px;
     display: flex;
     align-items: center;
