@@ -716,7 +716,9 @@ nav {
             margin-bottom: 20px;
             text-align: center;
         }
-
+       h3 {
+           background: #fff;
+       }
         .subtitle {
             font-size: 18px;
             color: #999;
@@ -759,7 +761,7 @@ nav {
             font-size: 24px;
             font-weight: 600;
             margin-bottom: 12px;
-            background: #fff;
+            
         }
 
         .role {
