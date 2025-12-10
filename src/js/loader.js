@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ============================ */
     setTimeout(() => {
         loader.classList.add("hide");
-    }, 2000);
+    }, 15000);
 
 
 
