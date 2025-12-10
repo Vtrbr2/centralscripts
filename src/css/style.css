@@ -80,7 +80,7 @@ nav {
     .menu-btn span {
       display: block;
       height: 2px; width: 28px;
-      background: #000; /*mexi aq*/
+      background: #fff; /*mexi aq1*/
       margin: 5px 0;
       border-radius: 2px;
       transition: .3s;
