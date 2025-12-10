@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apostila Trollchipss</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="shortcut icon" href="https://imgs.search.brave.com/ewBOsudyEhHzqASvoT9Jm5CNNjpIeQGYYMTOGIdXGJk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9wbmdm/cmUuY29tL3dwLWNv/bnRlbnQvdXBsb2Fk/cy9ib29rLTQ5LTIy/N3gzMDAucG5n" type="imagex/png">
+    <link rel="stylesheet" href="src/css/apostilas.css">
+</head>
+<body data-theme="dark">
+    <div id="mainApp" class="main-app active">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-left">
+                    <button id="sidebarToggle" class="sidebar-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <a href="#" class="logo">
+    <img src="https://trollchipss.netlify.app/logo-trollchips.png" 
+         alt="Logo Trollchipss" 
+         style="width: 32px; height: 32px; object-fit: contain; margin-right: 8px;">
+    <span>Apostilas Trollchipss</span>
+                    </a>
+                </div>
+                <div class="nav-right">
+                    <button id="themeToggle" class="theme-toggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Sidebar -->
+     <aside  id="sidebar" class="sidebar">
+            <div class="sidebar-header">
+    <div class="sidebar-header">
+                <div class="sidebar-logo">
+                    <i class="fas fa-book"></i>
+                    <span>Menu</span>
+                </div>
+
+            <div class="sidebar-content">
+                <div class="sidebar-section">
+                    <h3 class="sidebar-section-title">Principal</h3>
+                    <ul class="sidebar-menu">
+                        <li class="sidebar-item active">
+                            <a href="#apostilas" class="sidebar-link" data-page="apostilas">
+                                <i class="fas fa-book-open"></i>
+                                <span>Apostilas</span>
+                                <span class="sidebar-badge">46</span>
+                            </a>
+                        </li>
+<li class="sidebar-item">
+    <a href="https://trollchipss.netlify.app" class="sidebar-link button-link">
+        <i class="fas fa-arrow-left"></i>
+        <span>voltar</span>
+    </a>
+</li>
+                    </ul>
+                </div>
+            </div>
+    </div>
+</aside>
+        <!-- Main Content: Apostilas já ativo -->
+        <main id="mainContent" class="main-content">
+            <div id="apostilasPage" class="page active">
+                <section class="apostilas-section">
+                    <div class="container">
+                        <div class="section-header">
+                            <h2 class="section-title">Apostilas por Série</h2>
+                            <p class="section-subtitle">Conteúdo organizado por ano escolar</p>
+                        </div>
+
+                        <div class="grade-tabs">
+                            <button class="tab-btn active" data-tab="ensino-fundamental">Ensino Fundamental</button>
+                            <button class="tab-btn" data-tab="ensino-medio">Ensino Médio</button>
+                        </div>
+
+                        <div id="ensino-fundamental" class="tab-content active">
+                            <!-- Conteúdo carregado dinamicamente -->
+                        </div>
+
+                        <div id="ensino-medio" class="tab-content">
+                            <!-- Conteúdo carregado dinamicamente -->
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            
+        </main>
+
+        <!-- Overlay -->
+        <div id="overlay" class="overlay"></div>
+    </div>
+
+    <script src="src/js/apostilas.js"></script>
+</body>
+  </html>
