@@ -2,7 +2,7 @@
   // Carrega o arquivo JSON
   async function carregarGabarito() {
   try {
-    const response = await fetch("src/end/task_76781679.json");
+    const response = await fetch("gabarito/gab/2025/prova3.json");
     const questoes = await response.json();
 
     const container = document.getElementById("gabarito");
