@@ -44,13 +44,13 @@ body {
 }
 
 /* =========================
-   CONTEÚDO POLÍTICA
+   CONTEÚDO TERMOS
 ========================= */
-.privacy {
+.terms {
     min-height: 100vh;
 }
 
-.privacy-content {
+.terms-content {
     background: #0b0b0b;
     border: 1px solid #1f1f1f;
     border-radius: 14px;
@@ -60,7 +60,7 @@ body {
 /* =========================
    TÍTULOS
 ========================= */
-.privacy-content h1 {
+.terms-content h1 {
     font-size: 2rem;
     margin-bottom: 10px;
     color: #ffffff;
@@ -72,7 +72,7 @@ body {
     margin-bottom: 30px;
 }
 
-.privacy-content h2 {
+.terms-content h2 {
     font-size: 1.3rem;
     margin-top: 35px;
     margin-bottom: 12px;
@@ -82,16 +82,16 @@ body {
 /* =========================
    TEXTOS
 ========================= */
-.privacy-content p {
+.terms-content p {
     margin-bottom: 14px;
     color: #d6d6d6;
 }
 
-.privacy-content ul {
+.terms-content ul {
     margin: 10px 0 20px 25px;
 }
 
-.privacy-content li {
+.terms-content li {
     margin-bottom: 8px;
     color: #cfcfcf;
 }
@@ -99,20 +99,32 @@ body {
 /* =========================
    DESTAQUES
 ========================= */
-.privacy-content strong {
+.terms-content strong {
     color: #ffffff;
 }
 
-.privacy-content hr {
+.terms-content hr {
     border: none;
     border-top: 1px solid #1f1f1f;
     margin: 35px 0;
 }
 
 /* =========================
+   AVISO / DESTAQUE LEGAL
+========================= */
+.legal-warning {
+    background: #0f0f0f;
+    border-left: 4px solid #7c5cff;
+    padding: 15px 20px;
+    margin: 25px 0;
+    border-radius: 6px;
+    color: #dcdcdc;
+}
+
+/* =========================
    FOOTER INTERNO
 ========================= */
-.privacy-footer {
+.terms-footer {
     margin-top: 40px;
     padding-top: 20px;
     border-top: 1px solid #1f1f1f;
@@ -139,15 +151,15 @@ body {
    RESPONSIVO
 ========================= */
 @media (max-width: 768px) {
-    .privacy-content {
+    .terms-content {
         padding: 25px;
     }
 
-    .privacy-content h1 {
+    .terms-content h1 {
         font-size: 1.6rem;
     }
 
-    .privacy-content h2 {
+    .terms-content h2 {
         font-size: 1.15rem;
     }
 }
