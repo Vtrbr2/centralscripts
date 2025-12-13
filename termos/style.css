@@ -1,0 +1,153 @@
+/* =========================
+   RESET BÁSICO
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #000;
+    color: #eaeaea;
+    line-height: 1.7;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+.container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* =========================
+   HEADER
+========================= */
+.header {
+    background: #000;
+    border-bottom: 1px solid #1f1f1f;
+}
+
+.logo {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #7c5cff;
+    text-align: center;
+}
+
+/* =========================
+   CONTEÚDO POLÍTICA
+========================= */
+.privacy {
+    min-height: 100vh;
+}
+
+.privacy-content {
+    background: #0b0b0b;
+    border: 1px solid #1f1f1f;
+    border-radius: 14px;
+    padding: 40px;
+}
+
+/* =========================
+   TÍTULOS
+========================= */
+.privacy-content h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.update-date {
+    font-size: 0.9rem;
+    color: #9b9b9b;
+    margin-bottom: 30px;
+}
+
+.privacy-content h2 {
+    font-size: 1.3rem;
+    margin-top: 35px;
+    margin-bottom: 12px;
+    color: #7c5cff;
+}
+
+/* =========================
+   TEXTOS
+========================= */
+.privacy-content p {
+    margin-bottom: 14px;
+    color: #d6d6d6;
+}
+
+.privacy-content ul {
+    margin: 10px 0 20px 25px;
+}
+
+.privacy-content li {
+    margin-bottom: 8px;
+    color: #cfcfcf;
+}
+
+/* =========================
+   DESTAQUES
+========================= */
+.privacy-content strong {
+    color: #ffffff;
+}
+
+.privacy-content hr {
+    border: none;
+    border-top: 1px solid #1f1f1f;
+    margin: 35px 0;
+}
+
+/* =========================
+   FOOTER INTERNO
+========================= */
+.privacy-footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #1f1f1f;
+    text-align: center;
+    font-size: 0.95rem;
+    color: #a0a0a0;
+}
+
+/* =========================
+   FOOTER GERAL
+========================= */
+.footer {
+    background: #000;
+    border-top: 1px solid #1f1f1f;
+}
+
+.footer p {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #7a7a7a;
+}
+
+/* =========================
+   RESPONSIVO
+========================= */
+@media (max-width: 768px) {
+    .privacy-content {
+        padding: 25px;
+    }
+
+    .privacy-content h1 {
+        font-size: 1.6rem;
+    }
+
+    .privacy-content h2 {
+        font-size: 1.15rem;
+    }
+}
