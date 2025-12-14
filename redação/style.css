@@ -184,7 +184,8 @@ body {
 /* Campos de Entrada */
         label {
             display: block;
-            color:  #f0f0f0;
+          /*  color:  #f0f0f0;*/
+            background: rgba(255, 255, 255, 0.05);
             margin-bottom: 0.5rem;
             font-weight: 600;
         }
