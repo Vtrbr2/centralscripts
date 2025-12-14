@@ -238,6 +238,7 @@ body {
             width: 100%;
             padding: 0.5rem;
           /*  background-color: #003366; */
+            background: rgba(255, 255, 255, 0.05);
             border: 1px solid;
             color: #333333;
             border-radius: 0.5rem;
