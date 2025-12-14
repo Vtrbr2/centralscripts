@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trollchipss - Pendências</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4a6bff;
+            --secondary-color: #6c63ff;
+            --primary-light: #63b3ff;
+            --accent-color: #ff6584;
+            --background-color: #0f172a;
+            --card-background: #1e293b;
+            --text-color: #f8fafc;
+            --text-secondary: #94a3b8;
+            --border-color: #334155;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --error-color: #ef4444;
+            --font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            min-height: 100vh;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(74, 107, 255, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(108, 99, 255, 0.1) 0%, transparent 20%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        .logo h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            font-weight: 300;
+        }
+
+        .section {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .login-container {
+            background: var(--card-background);
+            border-radius: 20px;
+            padding: 40px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+        }
+
+        .login-container h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--text-color);
+            text-align: center;
+        }
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .input-group label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .input-wrapper input {
+            width: 100%;
+            padding: 15px 45px 15px 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            color: var(--text-color);
+            font-size: 1rem;
+            font-family: var(--font-family);
+            transition: all 0.3s ease;
+        }
+
+        .input-wrapper input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(74, 107, 255, 0.1);
+        }
+
+        .toggle-btn, .clear-btn {
+            position: absolute;
+            right: 15px;
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 1.1rem;
+            padding: 5px;
+            transition: color 0.3s ease;
+        }
+
+        .toggle-btn:hover, .clear-btn:hover {
+            color: var(--text-color);
+        }
+
+        .clear-btn.hidden {
+            display: none;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: var(--font-family);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+        }
+
+        .btn-primary:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(74, 107, 255, 0.3);
+        }
+
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .results-container {
+            display: none;
+            margin-top: 30px;
+        }
+
+        .results-card {
+            background: var(--card-background);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .results-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .badge {
+            background: var(--primary-color);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .badge.success {
+            background: var(--success-color);
+        }
+
+        .badge.warning {
+            background: var(--warning-color);
+        }
+
+        .category-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 12px 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-left: 3px solid var(--primary-color);
+        }
+
+        .category-name {
+            font-weight: 500;
+        }
+
+        .category-count {
+            background: var(--primary-color);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .no-tasks {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-secondary);
+        }
+
+        .no-tasks-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid var(--border-color);
+            border-top-color: var(--primary-color);
+            border-radius: 50%;
+            margin: 20px auto;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        #notificationsContainer {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 10000;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-width: 350px;
+        }
+
+        .Notificacao {
+            background-color: var(--card-background);
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--primary-color);
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            opacity: 0;
+            transform: translateX(100%);
+            transition: opacity 0.3s, transform 0.3s;
+            cursor: pointer;
+        }
+
+        .Notificacao.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .Notificacao.success { border-left-color: var(--success-color); }
+        .Notificacao.warning { border-left-color: var(--warning-color); }
+        .Notificacao.error { border-left-color: var(--error-color); }
+        .Notificacao.info { border-left-color: var(--primary-light); }
+
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: auto;
+        }
+
+        .footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+            color: var(--primary-light);
+        }
+
+        @media (max-width: 768px) {
+            .logo h1 {
+                font-size: 3rem;
+            }
+            
+            .login-container {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="notificationsContainer"></div>
+
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <h1>Trollchipss Pendências</h1>
+                <p class="subtitle">Sistema de Verificação de Tarefas e Redações</p>
+            </div>
+        </header>
+
+        <section id="loginSection" class="section">
+            <div class="login-container">
+                <h2>Verificar Pendências</h2>
+                
+                <form id="loginForm" class="login-form">
+                    <div class="input-group">
+                        <label for="studentId">RA</label>
+                        <div class="input-wrapper">
+                            <input type="text" id="studentId" placeholder="RA + dígito + sp | ex: 123456790sp" required>
+                            <button type="button" id="clearStudentId" class="clear-btn hidden">×</button>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="password">Senha</label>
+                        <div class="input-wrapper">
+                            <input type="password" id="password" placeholder="Senha" required>
+                            <button type="button" id="togglePassword" class="toggle-btn">👁</button>
+                            <button type="button" id="clearPassword" class="clear-btn hidden">×</button>
+                        </div>
+                    </div>
+
+                    <button type="submit" id="checkBtn" class="btn btn-primary">
+                        🔍 Verificar Pendências
+                    </button>
+                </form>
+
+                <div id="resultsContainer" class="results-container">
+                    <div class="results-card">
+                        <h3>
+                            📝 Tarefas Pendentes
+                            <span id="tasksBadge" class="badge">0</span>
+                        </h3>
+                        <div id="tasksContent"></div>
+                    </div>
+
+                    <div class="results-card">
+                        <h3>
+                            ✍️ Redações Pendentes
+                            <span id="redacoesBadge" class="badge">0</span>
+                        </h3>
+                        <div id="redacoesContent"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        Aproveite nosso sistema
+        <br>
+        <a href="https://scriptsgerais.vercel.app/">Central - Scripts</a>
+        <br>
+        made by Vtbr2
+        <br>
+        Última atualização - 14/12/2025
+    </footer>
+
+    <script>
+        const config = {
+            LOGIN_URL: 'https://sedintegracoes.educacao.sp.gov.br/credenciais/api/LoginCompletoToken',
+            API_BASE_URL: 'https://edusp-api.ip.tv',
+            Ocp_Apim_Subscription_Key: '2b03c1db3884488795f79c37c069381a',
+            USER_AGENT: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+        };
+
+        const categoryMap = {
+            1: 'Língua Portuguesa',
+            5: 'Geografia',
+            6: 'História',
+            7: 'Sociologia',
+            8: 'Biologia',
+            9: 'Física',
+            10: 'Matemática',
+            11: 'Química',
+            13: 'Língua Estrangeira Moderna - Inglês',
+            17: 'Ciências',
+            11621: 'Educação Financeira',
+            5978: 'Filosofia',
+            14332: 'Educação Financeira',
+            156886: 'Multidisciplinar',
+            459708: '90 dias SAEB - Matemática',
+            459709: '90 dias SAEB - Língua Portuguesa'
+        };
+
+        const elements = {
+            studentId: document.getElementById('studentId'),
+            password: document.getElementById('password'),
+            loginForm: document.getElementById('loginForm'),
+            checkBtn: document.getElementById('checkBtn'),
+            togglePassword: document.getElementById('togglePassword'),
+            clearStudentId: document.getElementById('clearStudentId'),
+            clearPassword: document.getElementById('clearPassword'),
+            resultsContainer: document.getElementById('resultsContainer'),
+            tasksContent: document.getElementById('tasksContent'),
+            redacoesContent: document.getElementById('redacoesContent'),
+            tasksBadge: document.getElementById('tasksBadge'),
+            redacoesBadge: document.getElementById('redacoesBadge'),
+            notificationsContainer: document.getElementById('notificationsContainer')
+        };
+
+        let currentAuthToken = null;
+        let userNick = null;
+
+        function showNotification(message, type = 'info', duration = 5000) {
+            const notification = document.createElement('div');
+            notification.className = `Notificacao ${type}`;
+            notification.innerHTML = `<p>${message}</p>`;
+            elements.notificationsContainer.prepend(notification);
+
+            setTimeout(() => notification.classList.add('show'), 10);
+
+            notification.addEventListener('click', () => {
+                notification.classList.remove('show');
+                setTimeout(() => notification.remove(), 300);
+            });
+
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.classList.remove('show');
+                    setTimeout(() => notification.remove(), 300);
+                }
+            }, duration);
+        }
+
+        async function makeRequest(url, method = 'GET', headers = {}, body = null) {
+            const options = { 
+                method, 
+                headers: { 
+                    'User-Agent': config.USER_AGENT,
+                    'Content-Type': 'application/json',
+                    ...headers 
+                } 
+            };
+            if (body) options.body = JSON.stringify(body);
+            const response = await fetch(url, options);
+            if (!response.ok) throw new Error(`Erro HTTP ${response.status}`);
+            return response.json();
+        }
+
+        function getDefaultHeaders(authToken = null) {
+            const headers = {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'x-api-realm': 'edusp',
+                'x-api-platform': 'webclient',
+                'User-Agent': config.USER_AGENT
+            };
+            if (authToken) headers['x-api-key'] = authToken;
+            return headers;
+        }
+
+        function isRedacao(task) {
+            return task.tags?.some(t => t.toLowerCase().includes('redacao')) ||
+                task.title?.toLowerCase().includes('redação');
+        }
+
+        async function login(ra, password) {
+            const loginData = { user: ra, senha: password };
+            const headers = {
+                'Accept': 'application/json',
+                'Ocp-Apim-Subscription-Key': config.Ocp_Apim_Subscription_Key,
+                'User-Agent': config.USER_AGENT,
+                'Content-Type': 'application/json'
+            };
+            
+            const data = await makeRequest(config.LOGIN_URL, 'POST', headers, loginData);
+            return data;
+        }
+
+        async function registerToken(token) {
+            const headers = getDefaultHeaders();
+            const data = await makeRequest(
+                `${config.API_BASE_URL}/registration/edusp/token`,
+                'POST',
+                headers, 
+                { token }
+            );
+            currentAuthToken = data.auth_token;
+            userNick = data.nick;
+            return data;
+        }
+
+        async function fetchUserRooms(authToken) {
+            const headers = getDefaultHeaders(authToken);
+            const data = await makeRequest(
+                `${config.API_BASE_URL}/room/user?list_all=true&with_cards=true`,
+                'GET',
+                headers
+            );
+            return data.rooms || [];
+        }
+
+        async function fetchTasks(token, targets, statuses) {
+            const commonParams = `expired_only=false&limit=100&offset=0&filter_expired=true&is_exam=false&with_answer=true&with_apply_moment=true`;
+            const targetParams = targets.map(t => `publication_target=${encodeURIComponent(t)}`).join('&');
+            const statusParams = statuses.map(s => `answer_statuses=${encodeURIComponent(s)}`).join('&');
+            const url = `${config.API_BASE_URL}/tms/task/todo?${commonParams}&${targetParams}&${statusParams}&is_essay=false`;
+            const headers = getDefaultHeaders(token);
+            
+            try {
+                const data = await makeRequest(url, 'GET', headers);
+                return data || [];
+            } catch (error) {
+                return [];
+            }
+        }
+
+        async function fetchRedacoes(token, targets, statuses) {
+            const commonParams = `expired_only=false&limit=100&offset=0&filter_expired=true&is_exam=false&with_answer=true&is_essay=true&with_apply_moment=true`;
+            const targetParams = targets.map(t => `publication_target=${encodeURIComponent(t)}`).join('&');
+            const statusParams = statuses.map(s => `answer_statuses=${encodeURIComponent(s)}`).join('&');
+            const url = `${config.API_BASE_URL}/tms/task/todo?${commonParams}&${targetParams}&${statusParams}`;
+            const headers = getDefaultHeaders(token);
+            
+            try {
+                const data = await makeRequest(url, 'GET', headers);
+                return data || [];
+            } catch (error) {
+                return [];
+            }
+        }
+
+        function displayTasksByCategory(tasks) {
+            const categoryCounts = {};
+            
+            tasks.forEach(task => {
+                const categoryId = task.category_id;
+                const categoryName = categoryMap[categoryId] || 'Outras';
+                categoryCounts[categoryName] = (categoryCounts[categoryName] || 0) + 1;
+            });
+
+            if (Object.keys(categoryCounts).length === 0) {
+                elements.tasksContent.innerHTML = `
+                    <div class="no-tasks">
+                        <div class="no-tasks-icon">✅</div>
+                        <p>Nenhuma tarefa pendente encontrada!</p>
+                    </div>
+                `;
+                elements.tasksBadge.textContent = '0';
+                elements.tasksBadge.className = 'badge success';
+            } else {
+                const totalTasks = Object.values(categoryCounts).reduce((a, b) => a + b, 0);
+                elements.tasksBadge.textContent = totalTasks;
+                elements.tasksBadge.className = 'badge warning';
+                
+                let html = '';
+                Object.entries(categoryCounts).sort((a, b) => b[1] - a[1]).forEach(([category, count]) => {
+                    html += `
+                        <div class="category-item">
+                            <span class="category-name">${category}</span>
+                            <span class="category-count">${count}</span>
+                        </div>
+                    `;
+                });
+                elements.tasksContent.innerHTML = html;
+            }
+        }
+
+        function displayRedacoes(redacoes) {
+            if (redacoes.length === 0) {
+                elements.redacoesContent.innerHTML = `
+                    <div class="no-tasks">
+                        <div class="no-tasks-icon">✅</div>
+                        <p>Nenhuma redação pendente encontrada!</p>
+                    </div>
+                `;
+                elements.redacoesBadge.textContent = '0';
+                elements.redacoesBadge.className = 'badge success';
+            } else {
+                elements.redacoesBadge.textContent = redacoes.length;
+                elements.redacoesBadge.className = 'badge warning';
+                
+                let html = '';
+                redacoes.forEach(redacao => {
+                    const status = redacao.answer_status === 'draft' ? 'Rascunho' : 'Pendente';
+                    const statusColor = redacao.answer_status === 'draft' ? '#facc15' : '#f0ad4e';
+                    html += `
+                        <div class="category-item">
+                            <span class="category-name">${redacao.title}</span>
+                            <span class="category-count" style="background: ${statusColor}">${status}</span>
+                        </div>
+                    `;
+                });
+                elements.redacoesContent.innerHTML = html;
+            }
+        }
+
+        async function checkPendencies() {
+            try {
+                showNotification('Fazendo login...', 'info');
+                const loginData = await login(elements.studentId.value, elements.password.value);
+                
+                showNotification('Registrando acesso...', 'info');
+                await registerToken(loginData.token);
+                
+                showNotification('Buscando informações...', 'info');
+                const rooms = await fetchUserRooms(currentAuthToken);
+                
+                let targets = new Set();
+                rooms.forEach(room => {
+                    targets.add(room.name);
+                    if (userNick) targets.add(`${room.name}:${userNick}`);
+                });
+
+                showNotification('Verificando tarefas...', 'info');
+                const allTasks = await fetchTasks(currentAuthToken, Array.from(targets), ['pending', 'draft']);
+                const tasks = allTasks.filter(task => !isRedacao(task));
+                
+                showNotification('Verificando redações...', 'info');
+                const redacoesData = await fetchRedacoes(currentAuthToken, Array.from(targets), ['pending', 'draft']);
+                const redacoes = redacoesData.filter(task => isRedacao(task));
+
+                displayTasksByCategory(tasks);
+                displayRedacoes(redacoes);
+                
+                elements.resultsContainer.style.display = 'block';
+
+                if (tasks.length === 0 && redacoes.length === 0) {
+                    showNotification('🎉 Parabéns! Você não tem nenhuma pendência!', 'success', 7000);
+                } else {
+                    showNotification(`Encontradas ${tasks.length} tarefas e ${redacoes.length} redações pendentes`, 'warning');
+                }
+
+            } catch (error) {
+                console.error('Erro:', error);
+                showNotification('Erro ao verificar pendências. Verifique suas credenciais.', 'error');
+            }
+        }
+
+        elements.togglePassword.addEventListener('click', () => {
+            const type = elements.password.type === 'password' ? 'text' : 'password';
+            elements.password.type = type;
+            elements.togglePassword.textContent = type === 'password' ? '👁' : '🔒';
+        });
+
+        elements.studentId.addEventListener('input', () => {
+            elements.clearStudentId.classList.toggle('hidden', !elements.studentId.value);
+        });
+
+        elements.password.addEventListener('input', () => {
+            elements.clearPassword.classList.toggle('hidden', !elements.password.value);
+        });
+
+        elements.clearStudentId.addEventListener('click', () => {
+            elements.studentId.value = '';
+            elements.clearStudentId.classList.add('hidden');
+            elements.studentId.focus();
+        });
+
+        elements.clearPassword.addEventListener('click', () => {
+            elements.password.value = '';
+            elements.clearPassword.classList.add('hidden');
+            elements.password.focus();
+        });
+
+        elements.loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            if (!elements.studentId.value || !elements.password.value) {
+                showNotification('Preencha o RA e a senha', 'warning');
+                return;
+            }
+
+            elements.checkBtn.disabled = true;
+            const originalText = elements.checkBtn.innerHTML;
+            elements.checkBtn.innerHTML = '<div class="spinner" style="width: 20px; height: 20px; margin: 0;"></div> Verificando...';
+
+            try {
+                await checkPendencies();
+            } finally {
+                elements.checkBtn.disabled = false;
+                elements.checkBtn.innerHTML = originalText;
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            showNotification('Sistema Trollchipss Pendências carregado!', 'success', 3000);
+            elements.studentId.focus();
+        });
+
+        console.log('%c🎓 Trollchipss Pendências v1.0', 'color: #4a6bff; font-size: 16px; font-weight: bold;');
+        console.log('%c✨ Sistema completo e funcional!', 'color: #10b981; font-size: 12px;');
+    </script>
+</body>
+  </html>
