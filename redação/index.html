@@ -11,7 +11,35 @@
     <meta name="description" content="Central Scripts / Script Redação completo grátis!">
 </head>
 <body>
-  <!-- Container principal da aplicação -->
+
+    
+    <!-- Container de Notificações -->
+    <div id="notificationsContainer"></div>
+
+    <!-- Modal de Seleção de Redação -->
+    <div id="redacaoSelectionModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Selecionar Redação</h3>
+                <button id="closeRedacaoSelectionModalBtn" class="close-modal">×</button>
+            </div>
+            <div id="redacaoListContainer"></div>
+            <button id="selectRedacaoBtn" class="btn primary" style="margin-top: 20px;">Selecionar</button>
+        </div>
+    </div>
+    
+    
+    <!-- Modal de Progresso -->
+    <div id="progressModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Processando</h3>
+            </div>
+            <p id="progressModalMessage">Aguarde enquanto processamos sua solicitação...</p>
+        </div>
+    </div>
+    
+    <!-- Container principal da aplicação -->
     <div class="container">
         
         <!-- Cabeçalho com logo e título -->
@@ -102,5 +130,6 @@
         Ultima atualização - 13/12/2025
     </footer>
 
+   <script src="redação/script.js"></script> 
 </body>
 </html>
