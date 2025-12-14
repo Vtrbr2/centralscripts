@@ -44,13 +44,13 @@ body {
 }
 
 /* =========================
-   CONTEÚDO POLÍTICA
+   CONTEÚDO FAQ
 ========================= */
-.privacy {
+.faq {
     min-height: 100vh;
 }
 
-.privacy-content {
+.faq-content {
     background: #0b0b0b;
     border: 1px solid #1f1f1f;
     border-radius: 14px;
@@ -60,59 +60,63 @@ body {
 /* =========================
    TÍTULOS
 ========================= */
-.privacy-content h1 {
+.faq-content h1 {
     font-size: 2rem;
     margin-bottom: 10px;
     color: #ffffff;
 }
 
-.update-date {
-    font-size: 0.9rem;
+.faq-content .subtitle {
+    font-size: 0.95rem;
     color: #9b9b9b;
     margin-bottom: 30px;
 }
 
-.privacy-content h2 {
-    font-size: 1.3rem;
-    margin-top: 35px;
-    margin-bottom: 12px;
+/* =========================
+   PERGUNTAS
+========================= */
+.faq-item {
+    border-bottom: 1px solid #1f1f1f;
+    padding: 18px 0;
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+}
+
+.faq-question {
+    font-size: 1.05rem;
+    font-weight: 600;
     color: #7c5cff;
+    cursor: pointer;
 }
 
-/* =========================
-   TEXTOS
-========================= */
-.privacy-content p {
-    margin-bottom: 14px;
+.faq-answer {
+    margin-top: 10px;
     color: #d6d6d6;
+    display: none;
 }
 
-.privacy-content ul {
-    margin: 10px 0 20px 25px;
-}
-
-.privacy-content li {
-    margin-bottom: 8px;
-    color: #cfcfcf;
+.faq-item.active .faq-answer {
+    display: block;
 }
 
 /* =========================
-   DESTAQUES
+   DESTAQUE / AVISO
 ========================= */
-.privacy-content strong {
-    color: #ffffff;
-}
-
-.privacy-content hr {
-    border: none;
-    border-top: 1px solid #1f1f1f;
-    margin: 35px 0;
+.faq-highlight {
+    background: #0f0f0f;
+    border-left: 4px solid #7c5cff;
+    padding: 15px 20px;
+    margin: 30px 0;
+    border-radius: 6px;
+    color: #dcdcdc;
 }
 
 /* =========================
    FOOTER INTERNO
 ========================= */
-.privacy-footer {
+.faq-footer {
     margin-top: 40px;
     padding-top: 20px;
     border-top: 1px solid #1f1f1f;
@@ -139,15 +143,15 @@ body {
    RESPONSIVO
 ========================= */
 @media (max-width: 768px) {
-    .privacy-content {
+    .faq-content {
         padding: 25px;
     }
 
-    .privacy-content h1 {
+    .faq-content h1 {
         font-size: 1.6rem;
     }
 
-    .privacy-content h2 {
-        font-size: 1.15rem;
+    .faq-question {
+        font-size: 1rem;
     }
 }
