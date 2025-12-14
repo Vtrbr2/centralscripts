@@ -300,9 +300,132 @@
                 width: 100%;
             }
         }
+        /* OVERLAY TOTAL */
+#login-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  background: radial-gradient(1200px 600px at top, #1a1f3c, #070b18 60%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* CARD */
+.login-card {
+  width: 100%;
+  max-width: 380px;
+  background: rgba(20, 26, 54, 0.95);
+  backdrop-filter: blur(14px);
+  border-radius: 18px;
+  padding: 28px 26px 30px;
+  box-shadow: 0 30px 80px rgba(0,0,0,.6);
+  border: 1px solid rgba(120,140,255,.25);
+}
+
+.login-card h2 {
+  margin: 0 0 6px;
+  text-align: center;
+  font-size: 26px;
+  background: linear-gradient(90deg, #7c8cff, #c77dff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  text-align: center;
+  opacity: .75;
+  margin-bottom: 18px;
+}
+
+label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 14px;
+}
+
+input {
+  width: 100%;
+  margin-top: 6px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.15);
+  background: #0d122b;
+  color: #fff;
+  outline: none;
+}
+
+input:focus {
+  border-color: #7c8cff;
+}
+
+.password-wrap {
+  position: relative;
+}
+
+#toggle-pass {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  opacity: .7;
+}
+
+button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #6f7dff, #a45bff);
+}
+
+button:hover {
+  filter: brightness(1.1);
+}
+
+#login-error {
+  margin-top: 12px;
+  text-align: center;
+  color: #ff6b6b;
+  font-size: 14px;
+        }
     </style>
 </head>
 <body>
+<!-- LOGIN OVERLAY -->
+<div id="login-overlay" aria-hidden="true">
+  <div class="login-card">
+    <h2>Central Scripts</h2>
+    <p class="subtitle">Acesso restrito</p>
+
+    <form id="login-form" autocomplete="off">
+      <label>
+        Usuário ou e-mail
+        <input type="text" id="login-user" placeholder="Usuário ou e-mail" required />
+      </label>
+
+      <label>
+        Senha
+        <div class="password-wrap">
+          <input type="password" id="login-pass" placeholder="Senha" required />
+          <span id="toggle-pass">👁</span>
+        </div>
+      </label>
+
+      <button type="submit">Entrar</button>
+      <p id="login-error"></p>
+    </form>
+  </div>
+</div>
+
+
+    
     <div class="container">
         <div class="header">
             <h1>📊 Dashboard de Capturas</h1>
