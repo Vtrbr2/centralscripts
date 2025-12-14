@@ -90,16 +90,39 @@ body {
     color: #7c5cff;
     cursor: pointer;
 }
+.faq-question {
+    position: relative;
+    padding-right: 25px;
+}
+
+.faq-question::after {
+    content: "+";
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #7c5cff;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-question::after {
+    content: "–";
+}
 
 .faq-answer {
+    max-height: 0;
+    overflow: hidden;
     margin-top: 10px;
     color: #d6d6d6;
-    display: none;
+    opacity: 0;
+    transition: max-height 0.35s ease, opacity 0.25s ease;
 }
 
 .faq-item.active .faq-answer {
-    display: block;
+    max-height: 500px; /* ajuste se a resposta for muito grande */
+    opacity: 1;
 }
+
 
 /* =========================
    DESTAQUE / AVISO
