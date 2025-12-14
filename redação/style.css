@@ -551,3 +551,128 @@ body {
         padding: 10px;
     }
 }
+/* Botão de Contas Salvas */
+.quick-login-btn {
+    width: 100%;
+    padding: 12px 20px;
+    background: linear-gradient(145deg, rgba(99, 179, 255, 0.2), rgba(74, 107, 255, 0.15));
+    border: 1px solid var(--primary-light);
+    border-radius: 10px;
+    color: var(--text-color);
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+    font-family: var(--font-family);
+}
+
+.quick-login-btn:hover {
+    background: linear-gradient(145deg, rgba(99, 179, 255, 0.3), rgba(74, 107, 255, 0.25));
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(74, 107, 255, 0.3);
+}
+
+.quick-login-btn .badge {
+    background: var(--primary-color);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+/* Modal de Contas Salvas */
+.account-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.account-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--border-color);
+    transform: translateX(5px);
+}
+
+.account-info {
+    flex: 1;
+}
+
+.account-ra {
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
+.account-time {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-top: 4px;
+}
+
+.account-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-use {
+    padding: 8px 16px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.btn-use:hover {
+    background: var(--primary-light);
+    transform: scale(1.05);
+}
+
+.btn-delete {
+    padding: 8px 12px;
+    background: rgba(239, 68, 68, 0.2);
+    color: var(--error-color);
+    border: 1px solid var(--error-color);
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.btn-delete:hover {
+    background: var(--error-color);
+    color: white;
+}
+
+.btn-clear-all {
+    width: 100%;
+    padding: 12px;
+    background: rgba(239, 68, 68, 0.2);
+    color: var(--error-color);
+    border: 1px solid var(--error-color);
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+}
+
+.btn-clear-all:hover {
+    background: var(--error-color);
+    color: white;
+    }
