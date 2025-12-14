@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trollchipss - Redações</title>
+    <link rel="stylesheet" href="redação/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="description" content="Central Scripts / Script Redação completo grátis!">
+</head>
+<body>
+    
+    <!-- Container de Notificações -->
+    <div id="notificationsContainer"></div>
+
+    <!-- Modal de Seleção de Redação -->
+    <div id="redacaoSelectionModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Selecionar Redação</h3>
+                <button id="closeRedacaoSelectionModalBtn" class="close-modal">×</button>
+            </div>
+            <div id="redacaoListContainer"></div>
+            <button id="selectRedacaoBtn" class="btn btn-primary" style="margin-top: 20px;">Selecionar</button>
+        </div>
+    </div>
+    
+    <!-- Modal de Progresso -->
+    <div id="progressModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Processando</h3>
+            </div>
+            <div class="progress-body">
+                <div class="spinner"></div>
+                <p id="progressModalMessage">Aguarde enquanto processamos sua solicitação...</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Container principal da aplicação -->
+    <div class="container">
+        
+        <!-- Cabeçalho com logo e título -->
+        <header class="header">
+            <div class="logo">
+                <h1 data-text="Trollchipss Redações">Trollchipss Redações</h1>
+                <p class="subtitle">new sistem! Central Scripts</p>
+            </div>
+        </header>
+
+        <!-- Seção de login -->
+        <section id="loginSection" class="section">
+            <div class="login-container">
+                
+                <h2>Login</h2>
+                
+                <!-- Formulário de login -->
+                <form id="loginForm" class="login-form">
+                    
+                    <!-- Campo para RA (Registro Acadêmico) -->
+                    <div class="input-group">
+                        <label for="studentId">RA</label>
+                        <div class="input-wrapper">
+                            <input type="text" id="studentId" placeholder="RA + dígito + sp | ex: 123456790sp" required>
+                            <button type="button" id="clearStudentId" class="clear-btn hidden">×</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Campo para senha -->
+                    <div class="input-group">
+                        <label for="password">Senha</label>
+                        <div class="input-wrapper">
+                            <input type="password" id="password" placeholder="Senha" required>
+                            <button type="button" id="togglePassword" class="toggle-btn">👁</button>
+                            <button type="button" id="clearPassword" class="clear-btn hidden">×</button>
+                        </div>
+                    </div>
+
+                    <!-- Widget simulação captcha -->
+                    <div class="config-row">
+                        <div class="config-input">
+                            <label for="min-time">Tempo mín. (min)</label>
+                            <input type="number" id="min-time" value="5" min="1" max="60">
+                        </div>
+                        <div class="config-input">
+                            <label for="max-time">Tempo máx. (min)</label>
+                            <input type="number" id="max-time" value="15" min="1" max="60">
+                        </div>
+                    </div>
+
+                    <div class="status">
+                        <button type="button" id="verifyBtn" aria-label="Verificar"></button>
+                        <span class="spinner-small" id="spinner"></span>
+                        <span id="statusText">Não verificado</span>
+                    </div>
+
+                    <!-- Grupo de botões -->
+                    <div class="button-group">
+                        <button type="button" id="loginNormal" class="btn btn-secondary" disabled>
+                            <i class="fas fa-search"></i> Buscar Redações
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <!-- Rodapé da página -->
+    <footer class="footer">
+        Aproveite nosso sistema
+        <br>
+        <a href="https://scriptsgerais.vercel.app/">Central - Scripts</a>
+        <br>
+        made by Vtbr2
+        <br>
+        Ultima atualização - 14/12/2025
+    </footer>
+
+    <script src="redação/script.js"></script> 
+</body>
+  </html>
