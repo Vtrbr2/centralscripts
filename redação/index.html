@@ -39,6 +39,20 @@
             </div>
         </div>
     </div>
+
+
+    <!-- Modal de Contas Salvas -->
+<div id="savedAccountsModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3 class="modal-title">📋 Contas Salvas</h3>
+            <button id="closeSavedAccountsModalBtn" class="close-modal">×</button>
+        </div>
+        <div id="savedAccountsContainer"></div>
+        <button id="clearAllAccountsBtn" class="btn-clear-all">🗑️ Limpar Todas</button>
+    </div>
+</div>
+
     
     <!-- Container principal da aplicação -->
     <div class="container">
@@ -56,10 +70,10 @@
             <div class="login-container">
               
                 <!-- Botão para login rápido com contas salvas -->
-      <button type="button" id="quickLoginBtn" class="quick-login-btn" style="display: none;">
-            <span>📋 Contas Salvas</span>
-            <span class="badge" id="accountCount">0</span>
-        </button>
+<button type="button" id="quickLoginBtn" class="quick-login-btn" style="display: none;">
+    <span>📋 Contas Salvas</span>
+    <span class="badge" id="accountCount">0</span>
+</button>
                 <h2>Login</h2>
                 
                 <!-- Formulário de login -->
@@ -123,7 +137,7 @@
         <br>
         Ultima atualização - 14/12/2025
     </footer>
-
+<script src="saved-accounts.js"></script>
     <script src="redação/script.js"></script> 
 </body>
   </html>
