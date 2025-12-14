@@ -184,7 +184,7 @@ body {
 /* Campos de Entrada */
         label {
             display: block;
-          /*  color:  #f0f0f0;*/
+            color:  #f0f0f0;
             background: rgba(255, 255, 255, 0.05);
             margin-bottom: 0.5rem;
             font-weight: 600;
@@ -237,7 +237,7 @@ body {
         .config-input input {
             width: 100%;
             padding: 0.5rem;
-            background-color: #003366;
+          /*  background-color: #003366; */
             border: 1px solid;
             color: #333333;
             border-radius: 0.5rem;
