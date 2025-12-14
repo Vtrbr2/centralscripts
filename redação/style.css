@@ -3,18 +3,25 @@
 :root {
     --primary-color: #4a6bff;
     --secondary-color: #6c63ff;
+    --primary-light: #63b3ff;
     --accent-color: #ff6584;
     --background-color: #0f172a;
     --background-light: #003366;
     --card-background: #1e293b;
     --text-color: #f8fafc;
+    --text-primary: #f0f0f0;
     --text-secondary: #94a3b8;
     --border-color: #334155;
     --success-color: #10b981;
     --warning-color: #f59e0b;
     --error-color: #ef4444;
     --font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
-   --border: #333333;
+    --border: #333333;
+    --card: #00264d;
+    --success: #48bb78;
+    --error: #f56565;
+    --warning: #ed8936;
+    --info: #63b3ff;
 }
 
 * {
