@@ -551,6 +551,10 @@ body {
         padding: 10px;
     }
 }
+/* ============================================
+   SISTEMA DE CONTAS SALVAS
+   ============================================ */
+
 /* Botão de Contas Salvas */
 .quick-login-btn {
     width: 100%;
@@ -582,9 +586,11 @@ body {
     border-radius: 20px;
     font-size: 0.9rem;
     font-weight: 700;
+    min-width: 30px;
+    text-align: center;
 }
 
-/* Modal de Contas Salvas */
+/* Items de Conta */
 .account-item {
     display: flex;
     align-items: center;
@@ -595,7 +601,6 @@ body {
     margin-bottom: 10px;
     border: 1px solid transparent;
     transition: all 0.3s ease;
-    cursor: pointer;
 }
 
 .account-item:hover {
@@ -612,12 +617,12 @@ body {
     font-weight: 600;
     color: var(--text-primary);
     font-size: 1rem;
+    margin-bottom: 5px;
 }
 
 .account-time {
     font-size: 0.85rem;
     color: var(--text-secondary);
-    margin-top: 4px;
 }
 
 .account-actions {
@@ -625,6 +630,7 @@ body {
     gap: 10px;
 }
 
+/* Botões de Ação */
 .btn-use {
     padding: 8px 16px;
     background: var(--primary-color);
@@ -675,4 +681,5 @@ body {
 .btn-clear-all:hover {
     background: var(--error-color);
     color: white;
+    transform: translateY(-2px);
     }
