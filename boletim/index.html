@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎓 Boletim Sala do Futuro</title>
+    <link rel="stylesheet" href="boletim/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎓 Boletim Sala do Futuro</h1>
+            <p>Visualize suas notas de forma organizada</p>
+        </header>
+
+        <div id="error" class="alert alert-error"></div>
+        <div id="success" class="alert alert-success"></div>
+
+        <div class="login-card">
+            <h2>🔐 Faça Login</h2>
+            
+            <div class="form-group">
+                <label>RA:</label>
+                <input type="text" id="ra" placeholder="000112218769SP">
+            </div>
+
+            <div class="form-group">
+                <label>Senha:</label>
+                <input type="password" id="senha" placeholder="••••••••">
+            </div>
+
+            <button id="btnBuscar" class="btn-primary">
+                <span id="btnText">🔍 Buscar Boletim</span>
+                <span id="btnLoading" style="display: none;">⏳ Carregando...</span>
+            </button>
+        </div>
+
+        <div id="loading" style="display: none;" class="loading">
+            <div class="spinner"></div>
+            <p>Buscando seu boletim...</p>
+        </div>
+
+        <div id="resultado" style="display: none;">
+            <div class="info-card">
+                <div id="alunoInfo"></div>
+            </div>
+
+            <div id="statsGrid" class="stats-grid"></div>
+
+            <div class="table-card">
+                <h2>📚 Notas por Disciplina</h2>
+                <div class="table-wrapper">
+                    <table id="tabelaBoletim">
+                        <thead>
+                            <tr>
+                                <th class="sticky-col">Disciplina</th>
+                                <th colspan="2">1º Bimestre</th>
+                                <th colspan="2">2º Bimestre</th>
+                                <th colspan="2">3º Bimestre</th>
+                                <th colspan="2">4º Bimestre</th>
+                            </tr>
+                            <tr class="sub-header">
+                                <th class="sticky-col"></th>
+                                <th>Sua Nota</th>
+                                <th>Média Turma</th>
+                                <th>Sua Nota</th>
+                                <th>Média Turma</th>
+                                <th>Sua Nota</th>
+                                <th>Média Turma</th>
+                                <th>Sua Nota</th>
+                                <th>Média Turma</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabelaBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="boletim/script.js"></script>
+</body>
+  </html>
