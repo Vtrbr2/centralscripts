@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Central Scripts — 2026</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Fonte estilo pixel -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #00eaff;
+            font-family: 'Press Start 2P', monospace;
+        }
+
+        .container {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .logo img {
+            max-width: 280px;
+            margin-bottom: 30px;
+            image-rendering: pixelated;
+        }
+
+        .title {
+            font-size: 2.2rem;
+            letter-spacing: 4px;
+            text-shadow: 
+                0 0 10px rgba(0, 234, 255, 0.6),
+                0 0 20px rgba(0, 234, 255, 0.4);
+        }
+
+        .year {
+            margin-top: 10px;
+            font-size: 2rem;
+            text-shadow: 
+                0 0 10px rgba(0, 234, 255, 0.6);
+        }
+
+        .message {
+            margin-top: 35px;
+            font-size: 0.85rem;
+            color: #ffffffcc;
+            line-height: 1.8;
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 0.65rem;
+            color: #ffffff55;
+        }
+
+        @media (max-width: 480px) {
+            .title {
+                font-size: 1.5rem;
+            }
+
+            .year {
+                font-size: 1.4rem;
+            }
+
+            .logo img {
+                max-width: 220px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="logo">
+            <img src="20251209_005808.png" alt="Central Scripts">
+        </div>
+
+        <div class="title">CENTRAL SCRIPTS</div>
+        <div class="year">2026</div>
+
+        <div class="message">
+            Nos vemos no próximo ano.
+        </div>
+
+        <footer>
+            © <span id="year"></span> Central Scripts
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>
