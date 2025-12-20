@@ -299,3 +299,59 @@ tbody tr:hover td:first-child {
         font-size: 0.85rem;
     }
   }
+#system-offline-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+}
+
+.offline-box {
+  background: #111;
+  padding: 25px;
+  border-radius: 12px;
+  text-align: center;
+  width: 90%;
+  max-width: 350px;
+  box-shadow: 0 0 20px #ff2fd3;
+  animation: pulse 1.5s infinite;
+}
+
+.offline-box h2 {
+  color: #ff2fd3;
+  margin-bottom: 10px;
+}
+
+.offline-box p {
+  color: #fff;
+  font-size: 16px;
+}
+
+.offline-box span {
+  display: block;
+  margin-top: 8px;
+  color: #ccc;
+}
+
+.offline-box button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #ff2fd3, #ff0077);
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 15px #ff2fd3; }
+  50% { box-shadow: 0 0 30px #ff2fd3; }
+  100% { box-shadow: 0 0 15px #ff2fd3; }
+    }
