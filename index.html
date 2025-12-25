@@ -83,23 +83,47 @@
 
     <div class="container">
         <div class="logo">
-            <img src="20251209_005808.png" alt="Central Scripts">
+            <img src="file_000000004ef0720e974bec81790e0685.png" alt="Central Scripts">
         </div>
 
         <div class="title">CENTRAL SCRIPTS</div>
         <div class="year">2026</div>
 
         <div class="message">
-            Nos vemos no próximo ano.
+            Desejamos um ótimo natal a todo(a)s,<br> que a união continue sendo o princípio da vitória.<br>Marry Cristimas.
         </div>
 
         <footer>
             © <span id="year"></span> Central Scripts
         </footer>
     </div>
+    <!-- Áudio -->
+<audio id="musica" loop>
+    <source src="musica.mp3" type="audio/mpeg">
+    Seu navegador não suporta áudio.
+</audio>
 
     <script>
         document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+    <script>
+        const audio = document.getElementById("musica");
+
+function iniciarMusica() {
+    audio.play()
+        .then(() => {
+            console.log("Música tocando 🎶");
+        })
+        .catch(err => {
+            console.log("Erro ao tocar música:", err);
+        });
+
+    // Remove o listener após o primeiro clique
+    document.removeEventListener("click", iniciarMusica);
+}
+
+// Toca a música no primeiro clique da página
+document.addEventListener("click", iniciarMusica);
     </script>
 
 </body>
