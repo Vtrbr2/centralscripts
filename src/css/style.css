@@ -1179,3 +1179,8 @@ footer {
                 flex-direction: column;
             }
             }
+
+.nolink {
+  text-decoration: none;
+  color: inherit;
+}
