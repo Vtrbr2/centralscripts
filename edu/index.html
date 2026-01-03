@@ -1,0 +1,1032 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educação Profissional Lunar</title>
+   
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet"/>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+      
+        :root {
+            --primary-purple: rgb(76, 16, 214);
+            --dark-purple: #7c3aed;
+            --light-purple: rgb(144, 116, 243);
+            --light-purple-bg: rgba(76, 16, 214, 0.1);
+            --background-dark: #000000;
+            --background-medium: #1a1a1a;
+            --background-light: #2d2d2d;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --error-color: #ef4444;
+            --delete-color: #be123c;
+            --delete-color-hover: #9f1239;
+        }
+      
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+      
+        .main-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            width: 100%;
+            padding: 1rem;
+            gap: 1rem;
+            min-height: 100vh;
+        }
+       
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 420px;
+        }
+       
+        @media (min-width: 1200px) {
+            .main-content { max-width: 480px; }
+        }
+      
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--background-dark);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-image:
+                radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(45, 45, 45, 0.3) 0%, transparent 50%),
+                linear-gradient(135deg, #000000 0%, #0a0a0a 50%, #141414 100%);
+        }
+      
+        .login-container {
+            width: 100%;
+            max-width: 380px;
+            padding: 2rem;
+            margin: 0;
+        }
+       
+        .header { text-align: center; margin-bottom: 2rem; }
+        .logo-section { display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; }
+        .logo-text { font-size: 2.5rem; font-weight: 500; background: linear-gradient(135deg, var(--primary-purple), var(--dark-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .subtitle { color: var(--text-secondary); font-weight: 400; margin-bottom: 0.5rem; }
+        .tagline { font-size: 0.8rem; font-weight: 700; color: var(--primary-purple); letter-spacing: 0.1em; text-transform: uppercase; }
+        .form { display: flex; flex-direction: column; gap: 1.5rem; }
+        .input-group { position: relative; }
+        .input-group label { display: block; font-size: 0.9rem; font-weight: 400; color: var(--text-secondary); margin-bottom: 0.5rem; }
+        .input-wrapper { position: relative; }
+        .input-group input { width: 100%; padding: 0.75rem 1rem; background: transparent; border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-primary); font-size: 1rem; transition: all 0.3s ease; font-family: 'Poppins', sans-serif; }
+        .input-group input[type="password"] { padding-right: 2.5rem; }
+        .input-group input:focus { outline: none; border-color: var(--primary-purple); box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.2); }
+        .password-toggle { position: absolute; right: 0.75rem; top: 50%; transform: translateY(-50%); background: none; border: none; color: var(--text-secondary); cursor: pointer; padding: 0.25rem; transition: color 0.2s ease; }
+        .password-toggle:hover { color: var(--text-primary); }
+        .form-buttons { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1.5rem; }
+        .btn { width: 100%; padding: 0.75rem; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; border: none; font-family: 'Poppins', sans-serif; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
+        .btn-accounts { margin-bottom: 1.5rem; background: var(--primary-purple); border: 1px solid var(--border-color); color: var(--text-primary); }
+        .btn-accounts:hover { background: var(--light-purple); border-color: var(--light-purple); }
+        .btn-main { background: linear-gradient(135deg, rgb(10, 10, 10), #252525, var(--primary-purple)); color: var(--text-primary); border: 1px solid var(--border-color); }
+        .btn-main:hover:not(:disabled) { background: linear-gradient(135deg, rgb(17, 17, 17), #252525, var(--dark-purple)); transform: translateY(-1px); }
+        .btn-secondary { background: linear-gradient(135deg, var(--background-light), var(--background-medium)); color: var(--text-primary); border: 1px solid var(--border-color); }
+        .btn-secondary:hover:not(:disabled) { background: var(--primary-purple); }
+        .btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none !important; }
+        .footer { text-align: center; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color); }
+        .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-weight: 500; font-size: 0.9rem; transition: color 0.2s ease; display: flex; align-items: center; gap: 0.4rem; }
+        .footer-links a:hover { color: var(--text-primary); }
+        .copyright { font-size: 0.75rem; color: rgba(255, 255, 255, 0.5); }
+       
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+        .modal.show { display: flex; }
+        .modal-content {
+            position: relative;
+            background: linear-gradient(145deg, #1a1a1a, #21113b);
+            border-radius: 16px;
+            width: 100%;
+            max-width: 600px;
+            max-height: 90vh;
+            border: 1px solid var(--primary-purple);
+            box-shadow: 0 20px 60px rgba(124, 58, 237, 0.3);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .modal-header { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 2rem; border-bottom: 1px solid var(--primary-purple); }
+        .modal-header h2 { font-size: 1.5rem; font-weight: 600; }
+        .close-btn { background: none; border: none; color: var(--text-secondary); font-size: 1.5rem; cursor: pointer; transition: all 0.2s ease; }
+        .close-btn:hover { color: var(--text-primary); transform: scale(1.1); }
+        .modal-body { flex: 1; overflow-y: auto; padding: 2rem; }
+        .account-list { display: flex; flex-direction: column; gap: 1rem; }
+        .account-list-item { display: flex; justify-content: space-between; align-items: center; padding: 1rem; background: var(--light-purple-bg); border-radius: 8px; border: 1px solid var(--border-color); }
+        .account-list-item-user { font-weight: 500; word-break: break-all; }
+        .account-list-item-actions { display: flex; gap: 0.75rem; }
+        .btn-account-action { padding: 0.4rem 0.8rem; border: none; border-radius: 6px; cursor: pointer; font-weight: 500; transition: all 0.2s ease; }
+        .btn-use { background: var(--primary-purple); color: white; }
+        .btn-use:hover { background: var(--dark-purple); }
+        .btn-delete { background: var(--delete-color); color: white; }
+        .btn-delete:hover { background: var(--delete-color-hover); }
+
+        /* Estilos para Cursos */
+        .course-modal-body {
+            text-align: center;
+            background: linear-gradient(180deg, rgba(76, 16, 214, 0.05) 0%, rgba(124, 58, 237, 0.1) 100%);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+        .course-list-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .course-item {
+            display: flex;
+            align-items: center;
+            background: var(--background-light);
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .course-item:hover {
+            background: rgba(76, 16, 214, 0.08);
+            border-color: var(--primary-purple);
+        }
+        .course-item input[type="checkbox"] {
+            margin-right: 1rem;
+            accent-color: var(--primary-purple);
+        }
+        .course-item.completed {
+            opacity: 0.6;
+            border-left: 4px solid var(--success-color);
+        }
+
+        .processing-modal-body {
+            background: linear-gradient(180deg, rgba(76, 16, 214, 0.05) 0%, rgba(124, 58, 237, 0.1) 100%);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+        #progressBarContainer {
+            width: 100%;
+            background: var(--background-light);
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+        #progressBarFill {
+            width: 0%;
+            height: 20px;
+            background: linear-gradient(90deg, var(--primary-purple), var(--dark-purple));
+            transition: width 0.3s ease-in-out;
+        }
+        #progressText {
+            text-align: center;
+            font-weight: 500;
+            margin-top: 0.5rem;
+        }
+        .countdown-timer {
+            background: var(--background-medium);
+            border: 2px solid var(--primary-purple);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            margin: 1rem 0;
+            display: none;
+        }
+        .countdown-display {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-purple);
+            font-family: 'Courier New', monospace;
+        }
+        #stopProcessBtn {
+            display: block;
+            margin: 1rem auto 0;
+            padding: 0.75rem 1.5rem;
+            background: var(--error-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            min-width: 180px;
+        }
+        #stopProcessBtn:hover:not(:disabled) {
+            background: #dc2626;
+            transform: translateY(-1px);
+        }
+        #stopProcessBtn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        .loading-spinner {
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-top: 4px solid var(--primary-purple);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .current-course {
+            font-weight: 600;
+            color: var(--primary-purple);
+            margin-bottom: 0.5rem;
+        }
+        .current-activity {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+        .total-stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 1rem 0;
+            padding: 1rem;
+            background: var(--background-light);
+            border-radius: 8px;
+        }
+        .stat-item {
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-purple);
+        }
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        #notificationsContainer {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 2000;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-width: 320px;
+        }
+        .notification {
+            background: var(--background-medium);
+            border-left: 4px solid var(--primary-purple);
+            padding: 0.8rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.4s ease;
+            min-width: 250px;
+            max-width: 320px;
+            word-wrap: break-word;
+        }
+        .notification.show { opacity: 1; transform: translateY(0); }
+        .notification h3 { margin: 0 0 4px 0; font-size: 0.9rem; font-weight: 600; }
+        .notification p { margin: 0; font-size: 0.8rem; color: var(--text-secondary); line-height: 1.3; }
+        .notification.success { border-color: var(--success-color); }
+        .notification.error { border-color: var(--error-color); }
+        .notification.info { border-color: var(--primary-purple); }
+        .notification.warning { border-color: var(--warning-color); }
+
+        @media (max-width: 480px) {
+            .login-container { padding: 1.5rem; }
+            #notificationsContainer { left: 50%; transform: translateX(-50%); width: 90%; }
+            .main-wrapper { padding: 0.5rem; gap: 0.5rem; }
+            .main-content { max-width: 100%; }
+            .logo-text { font-size: 2rem; }
+            .countdown-display { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-wrapper">
+        <main class="main-content">
+            <div class="login-container">
+                <div class="header">
+                    <div class="logo-section"><h1 class="logo-text">Educação Profissional</h1></div>
+                    <p class="subtitle">Sua plataforma do Futuro.</p>
+                    <p class="tagline">EDUCAÇÃO PROFISSIONAL</p>
+                </div>
+               
+                <form class="form" id="loginForm">
+                    <button type="button" class="btn btn-accounts" id="btnShowAccounts">
+                        <i class="fas fa-users"></i> Contas Salvas (<span id="savedAccountsCount">0</span>)
+                    </button>
+                    
+                    <div class="input-group">
+                        <label for="ra">Registro Acadêmico (RA):</label>
+                        <input type="text" id="ra" placeholder="Ex. 123456789xsp" required>
+                    </div>
+                  
+                    <div class="input-group">
+                        <label for="senha">Senha:</label>
+                        <div class="input-wrapper">
+                            <input type="password" id="senha" placeholder="Sua senha de acesso" required>
+                            <button type="button" class="password-toggle" id="togglePassword">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                  
+                    <div class="form-buttons">
+                        <button type="button" class="btn btn-main" id="buscarCursosBtn">
+                            <i class="fas fa-book"></i> Buscar Cursos
+                        </button>
+                    </div>
+                </form>
+
+                <div class="footer">
+                    <div class="footer-links">
+                        <a href="#"><i class="fab fa-discord"></i> Discord</a>
+                        <a href="#"><i class="fas fa-question-circle"></i> Suporte</a>
+                    </div>
+                    <p class="copyright">&copy; 2025 Educação Profissional Lunar. Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal de Contas Salvas -->
+    <div id="accountsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Contas Salvas</h2>
+                <button class="close-btn" data-modal-id="accountsModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="accountListContainer" class="account-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Cursos -->
+    <div id="coursesModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Cursos Disponíveis</h2>
+                <button class="close-btn" data-modal-id="coursesModal">&times;</button>
+            </div>
+            <div class="modal-body course-modal-body">
+                <div id="courseListContainer" class="course-list-container"></div>
+                <button type="button" class="btn btn-main" id="processSelectedCoursesBtn" disabled>
+                    <i class="fas fa-rocket"></i> Processar Cursos Selecionados
+                </button>
+                <button type="button" class="btn btn-secondary" id="refreshCoursesBtn" style="margin-top: 1rem;">
+                    <i class="fas fa-sync"></i> Atualizar Cursos
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Processamento -->
+    <div id="processingModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Processando Cursos...</h2>
+                <button class="close-btn" id="closeProcessingBtn" style="display: none;">&times;</button>
+            </div>
+            <div class="modal-body processing-modal-body">
+                <div class="loading-spinner"></div>
+                <div id="processingStatus">Iniciando...</div>
+                <div id="currentCourseName" class="current-course"></div>
+                <div id="currentActivityName"></div>
+                <div id="progressBarContainer">
+                    <div id="progressBarFill"></div>
+                </div>
+                <div id="progressText">0 / 0</div>
+                <div class="total-stats">
+                    <div class="stat-item">
+                        <div class="stat-number" id="statCourses">0</div>
+                        <div class="stat-label">Cursos</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="statUrls">0</div>
+                        <div class="stat-label">URLs Vistas</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="statQuizzes">0</div>
+                        <div class="stat-label">Questões Completas</div>
+                    </div>
+                </div>
+                <button id="stopProcessBtn" style="display: none;">Parar Processamento</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Loading para Buscar Cursos -->
+    <div id="loadingCoursesModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Carregando Cursos...</h2>
+            </div>
+            <div class="modal-body processing-modal-body">
+                <div class="loading-spinner"></div>
+                <p>Autenticando e buscando cursos...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Container de Notificações -->
+    <div id="notificationsContainer"></div>
+
+    <script>
+        // Configurações
+        const config = {
+            SEDUC_API_URL: 'https://edusp.crimsonzerohub.xyz',  
+            EDUCACAO_PROFISSIONAL_API_URL: 'https://crescendo.crimsonzerohub.xyz'
+        };
+
+        // Variáveis globais
+        let allCoursesData = [];
+        let selectedCourses = [];
+        let sesskey = '';
+        let moodleSession = '';
+        let currentActiveRA = '';
+        let shouldStopProcessing = false;
+        let isProcessing = false;
+        let totalUrlsViewed = 0;
+        let totalQuizzesCompleted = 0;
+        let totalActivitiesProcessed = 0;
+        const SAVED_ACCOUNTS_KEY = 'saved_education_accounts';
+
+        // Elementos DOM
+        const raInput = document.getElementById('ra');
+        const senhaInput = document.getElementById('senha');
+        const buscarCursosBtn = document.getElementById('buscarCursosBtn');
+        const togglePassword = document.getElementById('togglePassword');
+        const btnShowAccounts = document.getElementById('btnShowAccounts');
+        const processSelectedCoursesBtn = document.getElementById('processSelectedCoursesBtn');
+        const refreshCoursesBtn = document.getElementById('refreshCoursesBtn');
+        const processingModal = document.getElementById('processingModal');
+        const stopProcessBtn = document.getElementById('stopProcessBtn');
+        const closeProcessingBtn = document.getElementById('closeProcessingBtn');
+        const accountsModal = document.getElementById('accountsModal');
+        const coursesModal = document.getElementById('coursesModal');
+        const loadingCoursesModal = document.getElementById('loadingCoursesModal');
+
+        // Funções de Notificação
+        function showNotification(title, message, type = 'info', duration = 3000) {
+            const container = document.getElementById('notificationsContainer');
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.innerHTML = `
+                <h3>${title}</h3>
+                <p>${message}</p>
+            `;
+            container.appendChild(notification);
+            setTimeout(() => notification.classList.add('show'), 100);
+            setTimeout(() => {
+                notification.classList.remove('show');
+                setTimeout(() => container.removeChild(notification), 400);
+            }, duration);
+        }
+
+        // Atualizar Barra de Progresso
+        function updateProgressBar(current, total) {
+            const progressFill = document.getElementById('progressBarFill');
+            const progressText = document.getElementById('progressText');
+            const percentage = total > 0 ? (current / total) * 100 : 0;
+            progressFill.style.width = `${percentage}%`;
+            progressText.textContent = `${current} / ${total}`;
+        }
+
+        // Atualizar Stats Totais
+        function updateTotalStats(coursesProcessed, urlsViewed, quizzesCompleted) {
+            document.getElementById('statCourses').textContent = coursesProcessed;
+            document.getElementById('statUrls').textContent = urlsViewed;
+            document.getElementById('statQuizzes').textContent = quizzesCompleted;
+        }
+
+        // Gerenciar contas salvas
+        function getSavedAccounts() {
+            const accounts = localStorage.getItem(SAVED_ACCOUNTS_KEY);
+            return accounts ? JSON.parse(accounts) : {};
+        }
+
+        function saveAccount(ra, senha, token) {
+            const accounts = getSavedAccounts();
+            accounts[ra] = { senha, token, savedAt: Date.now() };
+            localStorage.setItem(SAVED_ACCOUNTS_KEY, JSON.stringify(accounts));
+            updateAccountsCount();
+        }
+
+        function getAccount(ra) {
+            const accounts = getSavedAccounts();
+            return accounts[ra] || null;
+        }
+
+        function deleteAccount(ra) {
+            const accounts = getSavedAccounts();
+            delete accounts[ra];
+            localStorage.setItem(SAVED_ACCOUNTS_KEY, JSON.stringify(accounts));
+            updateAccountsCount();
+        }
+
+        function updateAccountsCount() {
+            const accounts = getSavedAccounts();
+            document.getElementById('savedAccountsCount').textContent = Object.keys(accounts).length;
+        }
+
+        function displaySavedAccounts() {
+            const accounts = getSavedAccounts();
+            const container = document.getElementById('accountListContainer');
+            container.innerHTML = '';
+            if (Object.keys(accounts).length === 0) {
+                container.innerHTML = '<p style="text-align: center; color: var(--text-secondary);">Nenhuma conta salva.</p>';
+                return;
+            }
+            Object.keys(accounts).forEach(ra => {
+                const item = document.createElement('div');
+                item.className = 'account-list-item';
+                item.innerHTML = `
+                    <span class="account-list-item-user">RA: ${ra}</span>
+                    <div class="account-list-item-actions">
+                        <button class="btn-account-action btn-use" data-ra="${ra}">Usar</button>
+                        <button class="btn-account-action btn-delete" data-ra="${ra}">Excluir</button>
+                    </div>
+                `;
+                container.appendChild(item);
+            });
+            container.querySelectorAll('.btn-use').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const ra = e.target.dataset.ra;
+                    const account = getAccount(ra);
+                    if (account) {
+                        raInput.value = ra;
+                        senhaInput.value = account.senha || '';
+                        currentActiveRA = ra;
+                        accountsModal.classList.remove('show');
+                        showNotification('Conta Carregada', `RA ${ra} selecionado.`, 'success');
+                    }
+                });
+            });
+            container.querySelectorAll('.btn-delete').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const ra = e.target.dataset.ra;
+                    if (confirm(`Excluir RA ${ra}?`)) {
+                        deleteAccount(ra);
+                        displaySavedAccounts();
+                        showNotification('Conta Excluída', `RA ${ra} removido.`, 'info');
+                    }
+                });
+            });
+        }
+
+        btnShowAccounts.addEventListener('click', () => {
+            displaySavedAccounts();
+            accountsModal.classList.add('show');
+        });
+
+        // Fechar modais
+        document.querySelectorAll('.close-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const modalId = e.target.dataset.modalId || e.target.closest('.modal').id;
+                document.getElementById(modalId).classList.remove('show');
+            });
+        });
+
+        closeProcessingBtn.addEventListener('click', () => {
+            if (!isProcessing) processingModal.classList.remove('show');
+        });
+
+        // Toggle senha
+        togglePassword.addEventListener('click', () => {
+            const type = senhaInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            senhaInput.setAttribute('type', type);
+            togglePassword.querySelector('i').classList.toggle('fa-eye');
+            togglePassword.querySelector('i').classList.toggle('fa-eye-slash');
+        });
+
+        // Buscar cursos com loading
+        async function fetchAndDisplayCourses() {
+            const ra = raInput.value.trim();
+            const senha = senhaInput.value.trim();
+            if (!ra || !senha) {
+                showNotification('Erro', 'Preencha RA e Senha.', 'error');
+                return;
+            }
+
+            loadingCoursesModal.classList.add('show');
+
+            try {
+                // 1. Gerar token SEDUC
+                const seducResponse = await fetch(`${config.SEDUC_API_URL}/registration/edusp`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ realm: "edusp", platform: "webclient", id: ra, password: senha }),
+                });
+                const seducData = await seducResponse.json();
+                if (!seducResponse.ok || !seducData.auth_token) throw new Error('Falha no login SEDUC');
+
+                const authToken = seducData.auth_token;
+
+                // 2. Gerar token label
+                const labelResponse = await fetch(`${config.SEDUC_API_URL}/mas/external-auth/seducsp_token/generate?card_label=Educação+Profissional`, {
+                    method: 'GET',
+                    headers: {
+                        'x-api-key': authToken,
+                        'x-api-platform': 'webclient',
+                        'x-api-realm': 'edusp'
+                    },
+                });
+                const labelData = await labelResponse.json();
+                if (!labelResponse.ok || !labelData.token) throw new Error('Falha no token label');
+
+                const labelToken = labelData.token;
+
+                // Salvar conta
+                saveAccount(ra, senha, labelToken);
+
+                // 3. Obter cursos do backend
+                const coursesResponse = await fetch(`${config.EDUCACAO_PROFISSIONAL_API_URL}/courses`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ token: labelToken }),
+                });
+                const coursesData = await coursesResponse.json();
+                if (!coursesResponse.ok || !coursesData.success) throw new Error(coursesData.message || 'Falha ao buscar cursos');
+
+                allCoursesData = coursesData.data.courses;
+                sesskey = coursesData.data.sesskey;
+                moodleSession = coursesData.data.moodle_session;
+                currentActiveRA = ra;
+
+                loadingCoursesModal.classList.remove('show');
+                showNotification('Sucesso', `${allCoursesData.length} cursos encontrados!`, 'success');
+                displayCoursesInModal(allCoursesData);
+
+            } catch (error) {
+                loadingCoursesModal.classList.remove('show');
+                showNotification('Erro', error.message + ' (Tente relogar se o token expirou)', 'error');
+                console.error('Erro ao buscar cursos:', error);
+            }
+        }
+
+        function displayCoursesInModal(courses) {
+            const container = document.getElementById('courseListContainer');
+            container.innerHTML = '';
+            if (courses.length === 0) {
+                container.innerHTML = '<p style="text-align: center; color: var(--text-secondary);">Nenhum curso encontrado.</p>';
+                coursesModal.classList.add('show');
+                return;
+            }
+            courses.forEach(course => {
+                const details = course.details || { all_activities: [], pending_activities: [] };
+                const handleableActivities = details.all_activities.filter(a => a.is_url || a.is_quiz);
+                const completedHandleable = handleableActivities.filter(a => a.completionstate > 0).length;
+                const ourProgress = handleableActivities.length > 0 ? Math.round((completedHandleable / handleableActivities.length) * 100) : 0;
+                const pendingHandleable = details.pending_activities.filter(a => a.is_url || a.is_quiz).length;
+                const isDisabled = pendingHandleable === 0 ? 'disabled' : '';
+
+                const item = document.createElement('div');
+                item.className = `course-item ${ourProgress >= 100 ? 'completed' : ''}`;
+                item.innerHTML = `
+                    <input type="checkbox" id="course-${course.id}" data-course-id="${course.id}" data-course-name="${course.name}" ${isDisabled}>
+                    <label for="course-${course.id}">${course.name} (${ourProgress}%) - Pendentes: ${pendingHandleable}</label>
+                `;
+                container.appendChild(item);
+            });
+            updateCoursesButtonState();
+            coursesModal.classList.add('show');
+        }
+
+        function updateCoursesButtonState() {
+            const checkboxes = document.querySelectorAll('#courseListContainer input[type="checkbox"]');
+            const anyChecked = Array.from(checkboxes).some(cb => cb.checked);
+            processSelectedCoursesBtn.disabled = !anyChecked;
+        }
+
+        document.getElementById('courseListContainer').addEventListener('change', updateCoursesButtonState);
+
+        // Atualizar cursos via /info para cada curso em paralelo
+        async function updateCoursesAfterProcessing() {
+            loadingCoursesModal.classList.add('show');
+            try {
+                const updatePromises = allCoursesData.map(async (course) => {
+                    const response = await fetch(`${config.EDUCACAO_PROFISSIONAL_API_URL}/info`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            sesskey: sesskey,
+                            moodle_session: moodleSession,
+                            course_url: course.url
+                        }),
+                    });
+                    const data = await response.json();
+                    if (data.success) {
+                        const index = allCoursesData.findIndex(c => c.id === data.data.course_id);
+                        if (index !== -1) {
+                            allCoursesData[index].details = data.data.details;
+                            allCoursesData[index].progress = data.data.details.all_activities.filter(a => a.completionstate > 0).length / data.data.details.total_activities * 100;
+                        }
+                    }
+                    return data;
+                });
+                await Promise.all(updatePromises);
+                showNotification('Atualizado', 'Cursos atualizados com sucesso!', 'success');
+                displayCoursesInModal(allCoursesData);
+            } catch (error) {
+                showNotification('Erro', 'Falha ao atualizar cursos: ' + error.message, 'error');
+            } finally {
+                loadingCoursesModal.classList.remove('show');
+            }
+        }
+
+        // Função auxiliar para processar URLs em paralelo (batch de 10 para evitar sobrecarga)
+        async function processUrlsInParallel(urls, urlToCourse) {
+            const batchSize = 10;
+            let processed = 0;
+            for (let i = 0; i < urls.length; i += batchSize) {
+                if (shouldStopProcessing) break;
+                const batch = urls.slice(i, i + batchSize);
+                const promises = batch.map(async (url) => {
+                    document.getElementById('currentCourseName').textContent = urlToCourse[url] || 'Desconhecido';
+                    document.getElementById('currentActivityName').textContent = 'Visualizando URL...';
+                    try {
+                        const response = await fetch(`${config.EDUCACAO_PROFISSIONAL_API_URL}/view`, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                sesskey: sesskey,
+                                moodle_session: moodleSession,
+                                url: url
+                            })
+                        });
+                        const data = await response.json();
+                        if (data.success) {
+                            totalUrlsViewed++;
+                            showNotification('Sucesso', `URL visualizada.`, 'success', 800);
+                        } else {
+                            showNotification('Aviso', `Falha na URL: ${data.message || 'Erro desconhecido'}`, 'warning');
+                        }
+                    } catch (error) {
+                        showNotification('Erro', `Erro na URL: ${error.message}`, 'error');
+                    }
+                    totalActivitiesProcessed++;
+                    updateProgressBar(totalActivitiesProcessed, totalPending); // totalPending será definido antes
+                    updateTotalStats(coursesProcessed, totalUrlsViewed, totalQuizzesCompleted);
+                });
+                await Promise.all(promises);
+                processed += batch.length;
+            }
+        }
+
+        // Função auxiliar para processar questões em paralelo (batch de 5)
+        async function processQuizzesInParallel(quizAnswersData, pageToCourse) {
+            const batchSize = 5;
+            for (const pageData of quizAnswersData) {
+                if (shouldStopProcessing) break;
+                const courseName = pageToCourse[pageData.page_id] || 'Desconhecido';
+                document.getElementById('currentCourseName').textContent = courseName;
+                const questions = pageData.questions;
+                for (let i = 0; i < questions.length; i += batchSize) {
+                    if (shouldStopProcessing) break;
+                    const batch = questions.slice(i, i + batchSize);
+                    const promises = batch.map(async (q) => {
+                        document.getElementById('currentActivityName').textContent = `Completando: ${q.title.slice(0, 30)}...`;
+
+                        const user = pageData.user || {name: "Unknown", id: currentActiveRA || "0"};
+                        const correctIndex = q.correct_answers[0]?.index || 0;
+                        const choices = q.full_json.answers.map((answer, idx) => ({
+                            id: idx.toString(),
+                            description: {"en-US": answer.text.replace(/<[^>]+>/g, '').trim()}
+                        }));
+                        const xapiStatement = {
+                            actor: {
+                                name: user.name,
+                                objectType: "Agent",
+                                account: {
+                                    name: user.id.toString(),
+                                    homePage: "https://educacaoprofissional.educacao.sp.gov.br"
+                                }
+                            },
+                            verb: {
+                                id: "http://adlnet.gov/expapi/verbs/answered",
+                                display: {"en-US": "answered"}
+                            },
+                            object: {
+                                id: q.xapi_activity_url,
+                                objectType: "Activity",
+                                definition: {
+                                    extensions: {
+                                        "http://h5p.org/x-api/h5p-local-content-id": parseInt(q.content_id)
+                                    },
+                                    name: {"en-US": q.title},
+                                    description: {"en-US": q.question},
+                                    type: "http://adlnet.gov/expapi/activities/cmi.interaction",
+                                    interactionType: "choice",
+                                    correctResponsesPattern: [correctIndex.toString()],
+                                    choices: choices
+                                }
+                            },
+                            context: {
+                                contextActivities: {
+                                    category: [{
+                                        id: q.library,
+                                        objectType: "Activity"
+                                    }]
+                                }
+                            },
+                            result: {
+                                score: {min: 0, max: 1, raw: 1, scaled: 1},
+                                completion: true,
+                                success: true,
+                                duration: "PT10S",
+                                response: correctIndex.toString()
+                            }
+                        };
+                        
+                        try {
+                            const response = await fetch(`${config.EDUCACAO_PROFISSIONAL_API_URL}/complete`, {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify({
+                                    sesskey: sesskey,
+                                    moodle_session: moodleSession,
+                                    xapi_statement: xapiStatement
+                                })
+                            });
+                            const data = await response.json();
+                            if (data.success) {
+                                totalQuizzesCompleted++;
+                                showNotification('Sucesso', `Questão completada.`, 'success', 800);
+                            } else {
+                                showNotification('Aviso', `Falha na questão: ${data.message || 'Erro desconhecido'}`, 'warning');
+                            }
+                        } catch (error) {
+                            showNotification('Erro', `Erro na questão: ${error.message}`, 'error');
+                        }
+                        totalActivitiesProcessed++;
+                        updateProgressBar(totalActivitiesProcessed, totalPending);
+                        updateTotalStats(coursesProcessed, totalUrlsViewed, totalQuizzesCompleted);
+                    });
+                    await Promise.all(promises);
+                }
+            }
+        }
+
+        // Processar cursos selecionados: Otimizado para paralelismo (URLs e quizzes em paralelo, mas com batches)
+        processSelectedCoursesBtn.addEventListener('click', async () => {
+            const selectedCheckboxes = document.querySelectorAll('#courseListContainer input[type="checkbox"]:checked');
+            if (selectedCheckboxes.length === 0) {
+                showNotification('Aviso', 'Nenhum curso selecionado.', 'warning');
+                return;
+            }
+            selectedCourses = Array.from(selectedCheckboxes).map(cb => allCoursesData.find(c => c.id === cb.dataset.courseId));
+            coursesModal.classList.remove('show');
+
+            // Reset stats
+            totalUrlsViewed = 0;
+            totalQuizzesCompleted = 0;
+            totalActivitiesProcessed = 0;
+            let coursesProcessed = 0;
+
+            // Iniciar processamento
+            shouldStopProcessing = false;
+            isProcessing = true;
+            processingModal.classList.add('show');
+            stopProcessBtn.style.display = 'block';
+            stopProcessBtn.disabled = false;
+            stopProcessBtn.textContent = 'Parar Processamento';
+            closeProcessingBtn.style.display = 'none';
+
+            document.getElementById('processingStatus').textContent = `Processando ${selectedCourses.length} cursos...`;
+            document.getElementById('currentCourseName').textContent = 'Iniciando processamento...';
+            document.getElementById('currentActivityName').textContent = '';
+            updateProgressBar(0, 0);
+            updateTotalStats(0, 0, 0);
+
+            // Coletar todas as atividades pendentes e mapas
+            let allPendingUrls = [];
+            let allPendingQuizPageIds = [];
+            let urlToCourse = {};
+            let pageToCourse = {};
+
+            selectedCourses.forEach(course => {
+                const pendingActivities = course.details ? course.details.pending_activities.filter(a => a.is_url || a.is_quiz) : [];
+                pendingActivities.forEach(activity => {
+                    if (activity.is_url) {
+                        allPendingUrls.push(activity.url);
+                        urlToCourse[activity.url] = course.name;
+                    } else if (activity.is_quiz) {
+                        allPendingQuizPageIds.push(activity.mod_id);
+                        pageToCourse[activity.mod_id] = course.name;
+                    }
+                });
+            });
+
+            // Calcular totalPending com base em URLs + questões
+            let totalPending = allPendingUrls.length;
+            let quizAnswersData = [];
+            if (allPendingQuizPageIds.length > 0) {
+                try {
+                    const answersResponse = await fetch(`${config.EDUCACAO_PROFISSIONAL_API_URL}/answers`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            sesskey: sesskey,
+                            moodle_session: moodleSession,
+                            page_ids: allPendingQuizPageIds
+                        })
+                    });
+                    const answersData = await answersResponse.json();
+                    if (answersData.success) {
+                        quizAnswersData = answersData.data;
+                        totalPending += quizAnswersData.reduce((sum, page) => sum + page.questions.length, 0);
+                    } else {
+                        throw new Error(answersData.message || 'Falha ao obter respostas');
+                    }
+                } catch (error) {
+                    showNotification('Erro', `Falha ao obter respostas: ${error.message}`, 'error');
+                }
+            }
+            updateProgressBar(0, totalPending);
+
+            // Processar URLs em paralelo (se houver quizzes, processar URLs enquanto carrega respostas; senão, só URLs)
+            if (allPendingUrls.length > 0) {
+                // Se há quizzes, processa URLs em paralelo enquanto /answers roda (mas como /answers já rodou, prossegue)
+                await processUrlsInParallel(allPendingUrls, urlToCourse);
+            }
+
+            // Processar quizzes em paralelo se houver
+            if (quizAnswersData.length > 0) {
+                await processQuizzesInParallel(quizAnswersData, pageToCourse);
+            }
+
+            // Finalizar
+            coursesProcessed = selectedCourses.length;
+            updateTotalStats(coursesProcessed, totalUrlsViewed, totalQuizzesCompleted);
+            isProcessing = false;
+            shouldStopProcessing = false;
+            stopProcessBtn.style.display = 'none';
+            closeProcessingBtn.style.display = 'block';
+            if (shouldStopProcessing) {
+                showNotification('Parado', 'Processamento interrompido.', 'warning');
+            } else {
+                showNotification('Concluído', `${totalUrlsViewed} URLs vistas e ${totalQuizzesCompleted} questões completas.`, 'success');
+            }
+            
+            // Atualizar cursos
+            await updateCoursesAfterProcessing();
+            setTimeout(() => processingModal.classList.remove('show'), 1000);
+        });
+
+        stopProcessBtn.addEventListener('click', () => {
+            shouldStopProcessing = true;
+            stopProcessBtn.disabled = true;
+            stopProcessBtn.textContent = 'Parando...';
+            showNotification('Info', 'Parando...', 'warning');
+        });
+
+        // Refresh cursos button: Agora usa updateCoursesAfterProcessing
+        refreshCoursesBtn.addEventListener('click', async () => {
+            coursesModal.classList.remove('show');
+            await updateCoursesAfterProcessing();
+        });
+
+        // Event listeners principais
+        buscarCursosBtn.addEventListener('click', fetchAndDisplayCourses);
+
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', () => {
+            updateAccountsCount();
+            const savedRA = localStorage.getItem('currentActiveRA');
+            if (savedRA) {
+                const account = getAccount(savedRA);
+                if (account) {
+                    raInput.value = savedRA;
+                    senhaInput.value = account.senha || '';
+                    currentActiveRA = savedRA;
+                    showNotification('Sessão Restaurada', `RA ${savedRA} carregado.`, 'info', 2000);
+                }
+            }
+        });
+    </script>
+</body>
+  </html>
