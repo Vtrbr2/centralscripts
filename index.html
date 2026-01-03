@@ -602,6 +602,92 @@
                 font-size: 3rem;
             }
     }
+    .status-section {
+    background: #000;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.status-title {
+    color: #ffffff;
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+.status-update {
+    color: #b39cfb;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.status-box {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    background: #0d0719;
+    padding: 30px;
+    border-radius: 20px;
+    border: 2px solid #6b24ff;
+    box-shadow: 0 0 15px rgba(110, 60, 255, 0.4);
+}
+
+.status-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 18px;
+    background: #140d25;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    border-left: 4px solid #31d49f; /* padrão online */
+}
+
+.status-row:nth-child(even) {
+    background: #100a20;
+}
+
+.script-name {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+}
+
+/* STATUS BADGES */
+.status {
+    padding: 6px 15px;
+    font-size: 13px;
+    border-radius: 25px;
+    font-weight: 700;
+    color: #fff;
+}
+
+/* ONLINE */
+.online {
+    background: #1cbc78;
+}
+
+/* OFFLINE */
+.offline {
+    background: #d64040;
+    border-left-color: #d64040 !important;
+}
+
+/* Responsivo */
+@media (max-width: 550px) {
+    .status-row {
+        flex-direction: column;
+        gap: 6px;
+        padding: 14px;
+        text-align: center;
+    }
+
+    .script-name {
+        font-size: 14px;
+        }
 </style>
     
     
